@@ -1,0 +1,7 @@
+App\Entity\Client:
+    Client{1..10}:
+        username: <name()>
+        password: <password()>
+    Admin:
+        username: root
+        password: root

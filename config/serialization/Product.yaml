@@ -1,0 +1,6 @@
+App\Entity\Product:
+    attributes:
+        id:
+          groups: ['product:item:get', 'product:collection:get']
+        name:
+          groups: ['product:item:post']

@@ -1,0 +1,14 @@
+App\Entity\Product:
+    collectionOperations:
+        get:
+            normalization_context:
+                groups: ['product:collection:get']
+        post:
+            normalization_context:
+                groups: ['product:item:get']
+            denormalization_context:
+                groups: ['product:collection:post']
+    itemOperations: 
+        get:
+            normalization_context:
+                groups: ['product:item:get']

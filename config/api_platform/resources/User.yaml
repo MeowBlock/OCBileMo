@@ -1,0 +1,20 @@
+App\Entity\User:
+    collectionOperations:
+        get:
+            normalization_context:
+                groups: ['user:collection:get']
+        post:
+            normalization_context:
+                groups: ['user:item:get']
+            denormalization_context:
+                groups: ['user:collection:post']
+    itemOperations:
+        get:
+            normalization_context:
+                groups: ['user:item:get']
+        put:
+            normalization_context:
+                groups: ['user:item:get']
+            denormalization_context:
+                groups: ['user:item:put']
+        delete: ~

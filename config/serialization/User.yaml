@@ -1,0 +1,8 @@
+App\Entity\User:
+    attributes:
+        id:
+          groups: ['user:item:get', 'user:collection:get']
+        username:
+          groups: ['user:item:get', 'user:collection:get', 'user:collection:post', 'user:item:put']
+        client:
+          groups: ['user:item:get']

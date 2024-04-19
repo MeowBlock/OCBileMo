@@ -1,0 +1,50 @@
+App\Entity\Client:
+    operations:
+        ApiPlatform\Metadata\GetCollection:
+            normalizationContext:
+                groups: ['client:collection:get']
+        ApiPlatform\Metadata\Post:
+            normalization_context:
+                groups: ['client:item:get']
+            denormalization_context:
+                groups: ['client:collection:post']
+    # collectionOperations:
+    #     get:
+    #         normalization_context:
+    #             groups: ['client:collection:get']
+    #     post:
+    #         normalization_context:
+    #             groups: ['client:item:get']
+    #         denormalization_context:
+    #             groups: ['client:collection:post']
+    # itemOperations:
+    #     get:
+    #         normalization_context:
+    #             groups: ['client:item:get']
+    #     put:
+    #         normalization_context:
+    #             groups: ['client:item:get']
+    #         denormalization_context:
+    #             groups: ['client:item:put']
+    #     delete: ~
+    # api/config/api_platform/resources/Greeting.yaml
+    # operations:
+    #     ApiPlatform\Metadata\GetCollection:
+    #         normalizationContext:
+    #             groups: ['client:collection:get']
+    #     ApiPlatform\Metadata\Post:
+    #         normalization_context:
+    #             groups: ['client:item:get']
+    #         denormalization_context:
+    #             groups: ['client:collection:post']
+        
+
+# api/config/serializer/Greeting.yaml
+# App\Entity\Greeting:
+#     attributes:
+#         id:
+#             groups: 'greeting:collection:get'
+#         name:
+#             groups: 'greeting:collection:get'
+#         sum:
+#             groups: 'greeting:collection:get'
