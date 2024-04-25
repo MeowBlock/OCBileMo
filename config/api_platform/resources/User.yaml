@@ -1,20 +1,18 @@
 App\Entity\User:
-    collectionOperations:
-        get:
-            normalization_context:
-                groups: ['user:collection:get']
-        post:
-            normalization_context:
-                groups: ['user:item:get']
-            denormalization_context:
-                groups: ['user:collection:post']
-    itemOperations:
-        get:
-            normalization_context:
-                groups: ['user:item:get']
-        put:
-            normalization_context:
-                groups: ['user:item:get']
-            denormalization_context:
-                groups: ['user:item:put']
-        delete: ~
+    normalizationContext:
+        groups: ['user:read']
+    denormalizationContext:
+        groups: ['user:write']
+# App\Entity\User:
+#     operations:
+#         ApiPlatform\Metadata\GetCollection:
+#             normalizationContext:
+#                 groups: ['user:collection:get']
+#         ApiPlatform\Metadata\Post:
+#             normalization_context:
+#                 groups: ['user:item:get']
+#             denormalization_context:
+#                 groups: ['user:collection:post']
+#         ApiPlatform\Metadata\Get:
+#             denormalization_context:
+#                 groups: ['user:item:get']

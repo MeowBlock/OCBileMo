@@ -1,6 +1,6 @@
 App\Entity\Product:
     attributes:
         id:
-          groups: ['product:item:get', 'product:collection:get']
+          groups: ['product:read', 'product:write']
         name:
-          groups: ['product:item:post']
+          groups: ['product:read', 'product:write']

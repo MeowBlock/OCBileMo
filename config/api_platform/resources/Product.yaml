@@ -1,14 +1,32 @@
 App\Entity\Product:
-    collectionOperations:
-        get:
-            normalization_context:
-                groups: ['product:collection:get']
-        post:
-            normalization_context:
-                groups: ['product:item:get']
-            denormalization_context:
-                groups: ['product:collection:post']
-    itemOperations: 
-        get:
-            normalization_context:
-                groups: ['product:item:get']
+    normalizationContext:
+        groups: ['product:read']
+    denormalizationContext:
+        groups: ['product:write']
+# App\Entity\Product:
+#     operations:
+#         ApiPlatform\Metadata\GetCollection:
+#             normalizationContext:
+#                 groups: ['product:collection:get']
+#         ApiPlatform\Metadata\Post:
+#             normalization_context:
+#                 groups: ['product:item:get']
+#             denormalization_context:
+#                 groups: ['product:collection:post']
+#         ApiPlatform\Metadata\Get:
+#             denormalization_context:
+#                 groups: ['product:item:get']
+# App\Entity\Product:
+#     collectionOperations:
+#         get:
+#             normalization_context:
+#                 groups: ['product:collection:get']
+#         post:
+#             normalization_context:
+#                 groups: ['product:item:get']
+#             denormalization_context:
+#                 groups: ['product:collection:post']
+#     itemOperations: 
+#         get:
+#             normalization_context:
+#                 groups: ['product:item:get']

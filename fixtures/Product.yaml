@@ -3,3 +3,5 @@ App\Entity\Product:
         name: iphone<current()>
     product_samsung{11..20}:
         name: samsung<current()>
+    test_product:
+        name: produit_test

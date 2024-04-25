@@ -1,6 +1,10 @@
 App\Entity\Client:
     attributes:
         id:
-          groups: ['client:item:get', 'client:collection:get']
+          groups: ['client:read', 'client:write']
         username:
-          groups: ['client:item:get', 'client:collection:get', 'client:collection:post', 'client:item:put', 'user:item:get']
+          groups: ['client:read', 'client:write', 'user:read']
+        users:
+          groups: ['client:read', 'client:write']
+        password:
+          groups: ['client:write']
