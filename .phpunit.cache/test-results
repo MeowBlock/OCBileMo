@@ -1,1 +1,1 @@
-{"version":1,"defects":{"App\\Tests\\UserTest::testSomething":7},"times":{"App\\Tests\\UserTest::testSomething":0.262,"App\\Tests\\UserTest::testNoJwt":5.188}}
+{"version":1,"defects":{"App\\Tests\\UserTest::testSomething":7,"App\\Tests\\UserTest::testNoJwt":5,"App\\Tests\\UserTest::testAAAAAAAAA":5,"App\\Tests\\UserTest::testAAAAAAA":5},"times":{"App\\Tests\\UserTest::testSomething":0.262,"App\\Tests\\UserTest::testNoJwt":0.292,"App\\Tests\\UserTest::testAAAAAAAAA":0.014,"App\\Tests\\UserTest::testAAAAAAA":5.439}}

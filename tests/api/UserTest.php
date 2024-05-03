@@ -32,4 +32,15 @@ class UserTest extends ApiTestCase
 
         $this->assertResponseStatusCodeSame(401, 'JWT Token not found');
     }
+
+    public function testAAAAAAA(): void
+    {
+        $authData = ["username" => "root",
+        "password" => "root"];
+
+        $response = static::createClient()->request('POST', '/auth', ['json'=> $authData]);
+
+        $this->assertResponseIsSuccessful();
+
+    }
 }

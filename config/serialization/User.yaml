@@ -1,8 +1,14 @@
+# App\Entity\User:
+#     attributes:
+#         id:
+#           groups: ['user:collection:get', 'user:item:get', 'user:collection:post']
+#         name:
+#           groups: ['user:collection:get', 'user:item:get', 'user:collection:post']
 App\Entity\User:
     attributes:
         id:
-          groups: ['user:read', 'user:write']
+          groups: ['user:collection:get', 'user:item:get', 'user:collection:post']
         client:
-          groups: ['user:read', 'user:write']
+          groups: []
         name:
-          groups: ['user:read', 'user:write']
+          groups: ['user:collection:get', 'user:item:get', 'user:collection:post']
