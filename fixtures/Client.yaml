@@ -1,7 +1,7 @@
 App\Entity\Client:
     Client{1..10}:
         username: <name()>
-        password: <password()>
+        password: <hashPassword(password())>
     Admin:
         username: root
-        password: root
+        password: <hashPassword('root')>
