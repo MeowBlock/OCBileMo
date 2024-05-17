@@ -18,7 +18,12 @@
   </extensions>
   <source>
     <include>
-      <directory suffix=".php">src</directory>
+        <directory suffix=".php">src</directory>
     </include>
+
+    <exclude>
+        <directory suffix=".php">src/fixtures</directory>
+        <directory suffix=".php">src/Repository</directory>
+    </exclude>
   </source>
 </phpunit>

@@ -8,7 +8,5 @@ App\Entity\User:
     attributes:
         id:
           groups: ['user:collection:get', 'user:item:get', 'user:collection:post']
-        client:
-          groups: []
         name:
           groups: ['user:collection:get', 'user:item:get', 'user:collection:post']

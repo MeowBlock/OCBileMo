@@ -1,10 +1,4 @@
-# App\Entity\User:
-#     normalizationContext:
-#         groups: ['user:read']
-
 App\Entity\User:
-    denormalizationContext:
-        groups: ['user:collection:post']
     operations:
         ApiPlatform\Metadata\GetCollection:
             normalizationContext:
@@ -18,16 +12,3 @@ App\Entity\User:
         ApiPlatform\Metadata\Get:
             normalization_context:
                 groups: ['user:item:get']
-# App\Entity\User:
-#     operations:
-#         ApiPlatform\Metadata\GetCollection:
-#             normalizationContext:
-#                 groups: ['user:collection:get']
-#         ApiPlatform\Metadata\Post:
-#             normalization_context:
-#                 groups: ['user:item:post']
-#             denormalization_context:
-#                 groups: ['user:collection:post']
-#         ApiPlatform\Metadata\Get:
-#             normalization_context:
-#                 groups: ['user:item:get']

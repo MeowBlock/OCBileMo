@@ -4,7 +4,7 @@ namespace App\Tests;
 
 use ApiPlatform\Symfony\Bundle\Test\ApiTestCase;
 
-class UserTest extends ApiTestCase
+class ProductTest extends ApiTestCase
 {
     private $token;
     protected function restoreExceptionHandler(): void
@@ -30,7 +30,7 @@ class UserTest extends ApiTestCase
     public function testNoJwt(): void
     {
         $options = ['headers' =>['accept'=>'application/json']];
-        $response = static::createClient()->request('GET', '/api/users', $options);
+        $response = static::createClient()->request('GET', '/api/products', $options);
 
         $this->assertResponseStatusCodeSame(401, 'JWT Token not found');
     }
@@ -57,43 +57,26 @@ class UserTest extends ApiTestCase
         $options = ['headers' =>['accept'=>'application/json'], 'auth_bearer'=> $this->token];
 
 
-        $response = static::createClient()->request('GET', '/api/users', $options);
+        $response = static::createClient()->request('GET', '/api/products', $options);
 
-        $user1 = $response->toArray()[0];
-
-        $this->assertResponseIsSuccessful();
-
-        $this->assertContains('testuser', $user1);
-
-        //testGetUser()
-        $options = ['headers' =>['accept'=>'application/json'], 'auth_bearer'=> $this->token];
-
-
-        $response = static::createClient()->request('GET', '/api/users/'.$user1['id'], $options);
-
-        $user = $response->toArray();
+        $products = $response->toArray();
 
         $this->assertResponseIsSuccessful();
 
-        $this->assertContains('testuser', $user);
+        $tmp = [];
 
+        foreach($products as $product) {
+            $tmp[$product['id']] = $product['name'];
+        }
 
-        //testPostUser
-        $options = ['headers' =>['accept'=>'application/json'], 'auth_bearer'=> $this->token];
+        $this->assertContains('produit_test', $tmp);
 
+        $id = array_search('produit_test', $tmp);
 
-        $response = static::createClient()->request('POST', '/api/users', array_merge($options, ['json'=>['name'=>'wawa']]));
-
-
-        $this->assertResponseIsSuccessful();
-
-        $postUser = $response->toArray();
-
-        $this->assertContains('wawa', $postUser);
-
-        $response = static::createClient()->request('GET', '/api/users/'.$postUser['id'], $options);
+        $response = static::createClient()->request('GET', '/api/products/'.$id, $options);
         
         $this->assertResponseIsSuccessful();
+
 
 
     }

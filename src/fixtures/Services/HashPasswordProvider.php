@@ -17,10 +17,6 @@ class HashPasswordProvider extends Base
         $this->hasher = $hasher;
     }
 
-    public static function meow(string $seggs) {
-        return 'meow';
-    }
-
     public function hashPassword(string $plainPassword): string
     {
         return $this->hasher->hashPassword(new Client(), $plainPassword);
