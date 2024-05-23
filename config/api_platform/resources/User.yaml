@@ -12,3 +12,4 @@ App\Entity\User:
         ApiPlatform\Metadata\Get:
             normalization_context:
                 groups: ['user:item:get']
+        ApiPlatform\Metadata\Delete: ~
