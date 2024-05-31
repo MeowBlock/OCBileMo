@@ -24,6 +24,7 @@
     <exclude>
         <directory suffix=".php">src/fixtures</directory>
         <directory suffix=".php">src/Repository</directory>
+        <directory suffix=".php">src/Api</directory>
     </exclude>
   </source>
 </phpunit>

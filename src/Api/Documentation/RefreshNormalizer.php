@@ -1,6 +1,4 @@
 <?php
-declare(strict_types=1);
-
 namespace App\Api\Documentation;
 
 use Symfony\Component\Serializer\SerializerInterface;
@@ -9,7 +7,7 @@ use Symfony\Component\DependencyInjection\Attribute\AsDecorator;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 #[AsDecorator('api_platform.openapi.normalizer.api_gateway')]
-final class MyAlteration implements NormalizerInterface, SerializerAwareInterface
+final class RefreshNormalizer implements NormalizerInterface, SerializerAwareInterface
 {
     private NormalizerInterface $decorated;
 
@@ -80,7 +78,7 @@ $docs['components']['schemas']['JWTResponse'] = [
             'operationId' => 'jwt_refresh',
             'summary' => 'Refresh JWT Token',
             'requestBody' => [
-                'required' => false,
+                'required' => true,
                 'content' => [
                     'application/json' => [
                         'schema' => [
@@ -108,9 +106,30 @@ $docs['components']['schemas']['JWTResponse'] = [
                 ],
             ],
         ];
-        ksort($docs['components']['schemas']);
-        ksort($docs['paths']);
-        
+
+
+        // usort($docs['paths'], function($accA, $accB) {
+        //     if(isset($accA['get'])) {
+        //         //get
+        //         $tagsA = $accA['get']['tags'][0];
+        //     } else if(isset($accA['post'])) {
+        //         //post
+        //         $tagsA = $accA['post']['tags'][0];
+        //     }
+
+        //     if(isset($accB['get'])) {
+        //         //get
+        //         $tagsB = $accB['get']['tags'][0];
+        //     } else if(isset($accB['post'])) {
+        //         //post
+        //         $tagsB = $accB['post']['tags'][0];
+        //     }
+
+        //     dump($tagsA);
+        //     dump($tagsB);
+        //     return $tagsA <=> $tagsB;
+            
+        // });
         return $docs;
 
     }
